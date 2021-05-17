@@ -1,0 +1,51 @@
+<script>
+  "use strict";
+
+  const colors = ["red", "black", "purple", "orange", "green"];
+
+  console.log(colors.length);
+
+  console.log(colors[1]);
+
+  // imperative code
+  //   for (let x = 0; x < colors.length; x++) {
+  //     console.log(colors[x]);
+  //   }
+
+  // declarative code
+  // iterate over an array and produce a side effect
+  colors.forEach(function (color) {
+    console.log(color);
+  });
+
+  // declarative code
+  // semantic meaning - transform each array item into a new array
+  const upperCaseColors = colors.map(function (color) {
+    return color.toUpperCase();
+  });
+  console.log(upperCaseColors);
+
+  const fiveCharColors = colors.filter(function (color) {
+    return color.length === 5;
+  });
+  console.log(fiveCharColors);
+
+  const nums = [2, 5, 1, 7, 5, 6];
+
+  console.log(nums);
+
+  //   let sum = 0;
+
+  //   nums.forEach(function (n) {
+  //     sum += n;
+  //   });
+
+  //   console.log(sum);
+
+  const sum = nums.reduce(function (acc, cur) {
+    console.log("acc:", acc, ", cur:", cur);
+    return acc + cur;
+  }, 0 /* initial value of the acc */);
+
+  console.log(sum);
+</script>

@@ -1,0 +1,31 @@
+<script>
+  "use strict";
+
+  const nums = [1, 2, 3, 4];
+
+  Array.prototype.map = function (fn) {
+    console.log("called my map");
+
+    const items = [];
+
+    for (let x = 0; x < this.length; x++) {
+      items.push(fn(this[x]));
+    }
+
+    return items;
+  };
+
+  console.log(
+    nums.map(function (x) {
+      return x * 2;
+    })
+  );
+
+  const nums2 = [6, 7, 8, 9];
+
+  console.log(
+    nums2.map(function (x) {
+      return x * 2;
+    })
+  );
+</script>

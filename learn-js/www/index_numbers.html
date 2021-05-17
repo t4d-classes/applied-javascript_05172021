@@ -1,0 +1,25 @@
+<script>
+  "use strict";
+
+  //   console.log(1 / 0);
+
+  //   console.log(Infinity + Infinity);
+  //   console.log(Infinity * Infinity);
+  //   console.log(Infinity / Infinity);
+
+  //   console.log(isNaN(parseInt("qqqqqq")));
+
+  //   console.log(typeof NaN);
+
+  console.log(Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON);
+
+  console.log(Number.MAX_SAFE_INTEGER);
+  console.log(Number.MAX_SAFE_INTEGER + 1);
+  console.log(Number.MAX_SAFE_INTEGER + 2);
+
+  let num = BigInt(Number.MAX_SAFE_INTEGER);
+
+  console.log(num);
+  console.log(num + 1n);
+  console.log(num + 2n);
+</script>

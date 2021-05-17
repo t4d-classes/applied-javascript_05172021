@@ -1,0 +1,25 @@
+<script>
+  "use strict";
+
+  const person = {
+    firstName: "Bob",
+    lastName: "Smith",
+    address: {
+      street: "123 Oak Lane",
+      city: "Santa Fe",
+      state: "NM",
+    },
+  };
+
+  const person2 = {
+    firstName: "Sally",
+    lastName: "Smith",
+    address: person.address,
+  };
+
+  console.log(person2.address.city);
+
+  person.address.city = "Albuquerque";
+
+  console.log(person2.address.city);
+</script>

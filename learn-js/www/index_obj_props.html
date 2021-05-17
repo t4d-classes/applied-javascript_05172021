@@ -1,0 +1,19 @@
+<script>
+  "use strict";
+
+  const person = {
+    firstName: "Bob",
+    lastName: "Smith",
+    "this is a crazy property please never do this": 34,
+  };
+
+  console.log(person);
+
+  person.age = 42;
+
+  delete person.firstName;
+
+  console.log(person["this is a crazy property please never do this"]);
+
+  console.log(person);
+</script>

@@ -1,0 +1,32 @@
+<script>
+  "use strict";
+
+  const person = {
+    firstName: "Bob",
+    lastName: "Smith",
+    age: 23,
+    address: {
+      street: "123 Oak Lane",
+      city: "Santa Fe",
+      state: "NM",
+    },
+  };
+
+  //   const { ...person2 } = person;
+  //   console.log(person2);
+  //   console.log(person2 === person);
+
+  //   console.log(person2);
+
+  // object destructuring
+  // const firstName = person2.firstName;
+  const { firstName, lastName, ...stuff /* object rest operator */ } = person2;
+
+  console.log(firstName, lastName, stuff);
+
+  //   const {
+  //     firstName: fn,
+  //     address: { city, ...other },
+  //   } = person;
+  //   console.log(fn, city, state);
+</script>

@@ -1,0 +1,23 @@
+<script>
+  "use strict";
+
+  function fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+
+  const person = {
+    firstName: "Bob",
+    lastName: "Smith",
+    fullName,
+  };
+
+  const person2 = {
+    firstName: "Sally",
+    lastName: "Thomas",
+    fullName,
+  };
+
+  console.log(person.fullName());
+  console.log(person2.fullName());
+  console.log(person.fullName === person2.fullName);
+</script>

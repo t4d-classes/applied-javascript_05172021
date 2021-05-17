@@ -1,0 +1,21 @@
+<script>
+  "use strict";
+
+  // never use var, var indicates legacy code
+  // var someOtherNum = 2;
+
+  let p = 2;
+
+  const o = 2;
+
+  p = 3; // this will work
+  // o = 3; // this will not work
+
+  const person = {
+    firstName: "Bob",
+  };
+
+  person.firstName = "Tim";
+
+  console.log(person.firstName);
+</script>
