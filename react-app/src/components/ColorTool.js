@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 export const ColorTool = (props) => {
+  const [colors, setColors] = useState([...props.colors]);
+
   const [
     colorForm, // current state date
     setColorForm, // updates the state, and trigger a re-render
@@ -18,6 +20,21 @@ export const ColorTool = (props) => {
     });
   };
 
+  const appendColor = () => {
+    setColors([
+      ...colors,
+      {
+        ...colorForm,
+        id: Math.max(...colors.map((color) => color.id), 0) + 1,
+      },
+    ]);
+
+    setColorForm({
+      name: "",
+      hexcode: "",
+    });
+  };
+
   const headerText = "Color Tool";
 
   console.log(colorForm);
@@ -28,7 +45,7 @@ export const ColorTool = (props) => {
         <h1>{headerText}</h1>
       </header>
       <ul>
-        {props.colors.map((color) => (
+        {colors.map((color) => (
           <li key={color.id}>{color.name}</li>
         ))}
       </ul>
@@ -53,6 +70,9 @@ export const ColorTool = (props) => {
             onChange={change}
           />
         </div>
+        <button type="button" onClick={appendColor}>
+          Add Color
+        </button>
       </form>
     </>
   );
