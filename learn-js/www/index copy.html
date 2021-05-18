@@ -1,0 +1,31 @@
+<script>
+  "use strict";
+
+  // function declaration
+  // call-site "this" - value of this is determined by "how" the function is called
+  function doIt() {
+    console.log("did it");
+  }
+
+  doIt();
+  console.dir(doIt);
+
+  // function expression
+  // call-site "this" - value of this is determined by "how" the function is called
+  const doIt2 = function () {
+    console.log("did it 2");
+  };
+
+  doIt2();
+  console.dir(doIt2);
+
+  // arrow function
+  // lexical "this" - value of this is determined by the location of the function
+  // in the source code
+  const doIt3 = () => {
+    console.log("do it 3");
+  };
+
+  doIt3();
+  console.dir(doIt3);
+</script>
