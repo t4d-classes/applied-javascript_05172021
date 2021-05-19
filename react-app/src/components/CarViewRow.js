@@ -1,20 +1,22 @@
-export const CarViewRow = (props) => {
-
-  const deleteCar = () => {
-    props.onDeleteCar(props.car.id);
-  };
-
-  return (
-    <tr>
-      <td>{props.car.id}</td>
-      <td>{props.car.make}</td>
-      <td>{props.car.model}</td>
-      <td>{props.car.year}</td>
-      <td>{props.car.color}</td>
-      <td>{props.car.price}</td>
-      <td>
-        <button type="button" onClick={deleteCar}>Delete</button>
-      </td>
-    </tr>
-  );
-};
+export const CarViewRow = ({
+  car,
+  onEditCar: editCar,
+  onDeleteCar: deleteCar,
+}) => (
+  <tr>
+    <td>{car.id}</td>
+    <td>{car.make}</td>
+    <td>{car.model}</td>
+    <td>{car.year}</td>
+    <td>{car.color}</td>
+    <td>{car.price}</td>
+    <td>
+      <button type="button" onClick={() => editCar(car.id)}>
+        Edit
+      </button>
+      <button type="button" onClick={() => deleteCar(car.id)}>
+        Delete
+      </button>
+    </td>
+  </tr>
+);
