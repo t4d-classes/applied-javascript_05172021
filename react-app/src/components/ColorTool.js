@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { ToolHeader } from "./ToolHeader";
-import { ColorList } from "./ColorList";
+import { ItemList } from "./ItemList";
 import { ColorForm } from "./ColorForm";
 
 export const ColorTool = (props) => {
@@ -20,7 +20,7 @@ export const ColorTool = (props) => {
   return (
     <>
       <ToolHeader headerText="Color Tool" />
-      <ColorList colors={colors} />
+      <ItemList items={colors} contentFn={(i) => i.name} />
       <ColorForm buttonText="Add Color" onSubmitColor={appendColor} />
     </>
   );
