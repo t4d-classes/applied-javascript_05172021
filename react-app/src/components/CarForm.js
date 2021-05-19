@@ -1,36 +1,18 @@
-import { useState } from "react";
+import { useForm } from "../hooks/useForm";
 
 export const CarForm = (props) => {
-  const [
-    carForm, // current state date
-    setCarForm, // updates the state, and trigger a re-render
-  ] = useState(
-    {
-      make: "",
-      model: "",
-      year: 1900,
-      color: "",
-      price: 0,
-    } /* initial state value */
-  );
-
-  const change = (e) => {
-    setCarForm({
-      ...carForm,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [carForm, change, resetForm] = useForm({
+    make: "",
+    model: "",
+    year: 1900,
+    color: "",
+    price: 0,
+  });
 
   const submitCar = () => {
     props.onSubmitCar({ ...carForm });
 
-    setCarForm({
-      make: "",
-      model: "",
-      year: 1900,
-      color: "",
-      price: 0,
-    });
+    resetForm();
   };
 
   return (
