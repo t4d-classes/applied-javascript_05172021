@@ -2,35 +2,16 @@ import { useState } from "react";
 
 import { ToolHeader } from "./ToolHeader";
 import { CarTable } from "./CarTable";
+import { CarForm } from "./CarForm";
 
 export const CarTool = (props) => {
   const [cars, setCars] = useState([...props.cars]);
 
-  const [
-    carForm, // current state date
-    setCarForm, // updates the state, and trigger a re-render
-  ] = useState(
-    {
-      make: "",
-      model: "",
-      year: 1900,
-      color: "",
-      price: 0,
-    } /* initial state value */
-  );
-
-  const change = (e) => {
-    setCarForm({
-      ...carForm,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const appendCar = () => {
+  const appendCar = (newCar) => {
     setCars([
       ...cars,
       {
-        ...carForm,
+        ...newCar,
         id: Math.max(...cars.map((car) => car.id), 0) + 1,
       },
     ]);
@@ -40,61 +21,7 @@ export const CarTool = (props) => {
     <>
       <ToolHeader headerText="Car Tool" />
       <CarTable cars={cars} />
-      <form>
-        <div>
-          <label htmlFor="make-input">Make</label>
-          <input
-            type="text"
-            id="make-input"
-            name="make"
-            value={carForm.make}
-            onChange={change}
-          />
-        </div>
-        <div>
-          <label htmlFor="model-input">Model</label>
-          <input
-            type="text"
-            id="model-input"
-            name="model"
-            value={carForm.model}
-            onChange={change}
-          />
-        </div>
-        <div>
-          <label htmlFor="year-input">Year</label>
-          <input
-            type="text"
-            id="year-input"
-            name="year"
-            value={carForm.year}
-            onChange={change}
-          />
-        </div>
-        <div>
-          <label htmlFor="color-input">Color</label>
-          <input
-            type="text"
-            id="color-input"
-            name="color"
-            value={carForm.color}
-            onChange={change}
-          />
-        </div>
-        <div>
-          <label htmlFor="price-input">Price</label>
-          <input
-            type="number"
-            id="price-input"
-            name="price"
-            value={carForm.price}
-            onChange={change}
-          />
-        </div>
-        <button type="button" onClick={appendCar}>
-          Add Car
-        </button>
-      </form>
+      <CarForm buttonText="Add Car" onSubmitCar={appendCar} />
     </>
   );
 };
