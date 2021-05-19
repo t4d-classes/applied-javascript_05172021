@@ -17,10 +17,14 @@ export const CarTool = (props) => {
     ]);
   };
 
+  const removeCar = (carId) => {
+    setCars(cars.filter((c) => c.id !== carId));
+  };
+
   return (
     <>
       <ToolHeader headerText="Car Tool" />
-      <CarTable cars={cars} />
+      <CarTable cars={cars} onDeleteCar={removeCar} />
       <CarForm buttonText="Add Car" onSubmitCar={appendCar} />
     </>
   );
