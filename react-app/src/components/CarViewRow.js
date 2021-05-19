@@ -3,6 +3,7 @@ export const CarViewRow = ({
   onEditCar: editCar,
   onDeleteCar: deleteCar,
 }) => (
+
   <tr>
     <td>{car.id}</td>
     <td>{car.make}</td>

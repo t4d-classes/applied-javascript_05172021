@@ -19,14 +19,12 @@ export const ColorForm = (props) => {
   };
 
   const submitColor = () => {
-
-   props.onSubmitColor({ ...colorForm });
+    props.onSubmitColor({ ...colorForm });
 
     setColorForm({
-        name: "",
-        hexcode: "",
-      });
-
+      name: "",
+      hexcode: "",
+    });
   };
 
   return (
