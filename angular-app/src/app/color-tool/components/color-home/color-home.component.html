@@ -1,10 +1,6 @@
 <app-tool-header headerText="Color Tool"></app-tool-header>
 <app-tool-header [headerText]="headerText"></app-tool-header>
-<ul>
-  <li *ngFor="let color of colors">
-    {{ color.name }}
-  </li>
-</ul>
+<div class="app-color-list" [colors]="colors"></div>
 <app-color-form
   buttonText="Add Color"
   (submitColor)="addColor($event)"
