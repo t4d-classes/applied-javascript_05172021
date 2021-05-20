@@ -11,11 +11,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let car of cars"
-      class="app-car-view-row"
-      [car]="car"
-      (deleteCar)="doDeleteCar($event)"
-    ></tr>
+    <tr *ngIf="!cars.length">
+      <td colspan="7">There are no cars.</td>
+    </tr>
+    <ng-container *ngFor="let car of cars">
+      <tr
+        class="app-car-view-row"
+        [car]="car"
+        (deleteCar)="doDeleteCar($event)"
+      ></tr>
+    </ng-container>
   </tbody>
 </table>
