@@ -15,7 +15,7 @@
       *ngFor="let car of cars"
       class="app-car-view-row"
       [car]="car"
-      (deleteCar)="deleteCar.emit($event)"
+      (deleteCar)="doDeleteCar($event)"
     ></tr>
   </tbody>
 </table>

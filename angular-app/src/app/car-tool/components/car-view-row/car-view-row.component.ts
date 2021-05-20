@@ -18,7 +18,7 @@ export class CarViewRowComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  doDeleteCar(carId: number) {
-    this.deleteCar.emit(carId);
+  doDeleteCar() {
+    this.deleteCar.emit(this.car.id);
   }
 }
