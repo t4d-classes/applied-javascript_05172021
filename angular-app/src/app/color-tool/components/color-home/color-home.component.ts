@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { Color } from '../../models/color';
+import { NewColor, Color } from '../../models/color';
 
 @Component({
   selector: 'app-color-home',
@@ -17,22 +16,15 @@ export class ColorHomeComponent implements OnInit {
     { id: 3, name: 'blue', hexcode: '0000ff' },
   ];
 
-  colorForm!: FormGroup;
+  constructor() {}
 
-  constructor(private fb: FormBuilder) {}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    this.colorForm = this.fb.group({
-      name: '',
-      hexcode: '',
-    });
-  }
-
-  addColor() {
+  addColor(color: NewColor) {
     this.colors = [
       ...this.colors,
       {
-        ...this.colorForm.value,
+        ...color,
         id: Math.max(...this.colors.map((c) => c.id), 0) + 1,
       },
     ];
