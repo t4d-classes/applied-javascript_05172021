@@ -40,7 +40,7 @@ export const CarForm = (props) => {
       <div>
         <label htmlFor="year-input">Year</label>
         <input
-          type="text"
+          type="number"
           id="year-input"
           name="year"
           value={carForm.year}
