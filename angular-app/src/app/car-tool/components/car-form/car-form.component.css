@@ -1,0 +1,7 @@
+input.ng-touched.ng-invalid + span {
+  display: initial;
+}
+
+input + span {
+  display: none;
+}
