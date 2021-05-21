@@ -15,9 +15,16 @@
       <td colspan="7">There are no cars.</td>
     </tr>
     <ng-container *ngFor="let car of cars">
-      <tr
+      <tr *ngIf="editCarId === car.id"
+        class="app-car-edit-row"
+        [car]="car"
+        (saveCar)="doSaveCar($event)"
+        (cancelCar)="doCancelCar()"
+      ></tr>
+      <tr *ngIf="editCarId !== car.id"
         class="app-car-view-row"
         [car]="car"
+        (editCar)="doEditCar($event)"
         (deleteCar)="doDeleteCar($event)"
       ></tr>
     </ng-container>
