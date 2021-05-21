@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const { PORT } = process.env;
+const { PORT, NODE_ENV, CLIENT_APP_URL } = process.env;
 
 const { logger } = require("./logger");
 const express = require("express");
@@ -12,7 +12,18 @@ app.use(express.json());
 
 app.use("/api/colors", createRestRouter());
 
-app.use("/", express.static("./public"));
+if (NODE_ENV === "development") {
+
+    const httpProxy = require('http-proxy');
+    const clientAppProxy = httpProxy.createProxyServer();
+
+    app.use('/', (req, res) => {
+      clientAppProxy.web(req, res, { target: CLIENT_APP_URL });
+    });
+    
+} else {
+  app.use("/", express.static("./public"));
+}
 
 app.listen(PORT, (err) => {
   if (err) {
