@@ -1,34 +1,25 @@
 <script>
   "use strict";
 
-  function doIt() {
-    console.log(this);
-
-    // const that = this;
-
-    // setTimeout(function inner() {
-    //   console.log(that);
-    // }, 2000);
+  const outer = () => {
+    let t = 2;
 
     setTimeout(() => {
-      console.log(this);
+        t = 4;
     }, 2000);
 
-    // inner();
-  }
-
-  //   doIt();
-
-  //   window.doIt();
-
-  const o = {
-    id: 2,
-    doIt: doIt,
+    return () => {
+      console.log(t);
+    };
   };
 
-  //   o.doIt();
+  const inner = outer();
 
-  doIt.call({ id: 3 });
+  inner();
 
-  //   console.log(window.doIt === o.doIt);
+  setTimeout(() => {
+    inner();
+  }, 4000);
+
+//   console.dir(inner);
 </script>

@@ -1,0 +1,34 @@
+<script>
+  "use strict";
+
+  function doIt() {
+    console.log(this);
+
+    // const that = this;
+
+    // setTimeout(function inner() {
+    //   console.log(that);
+    // }, 2000);
+
+    setTimeout(() => {
+      console.log(this);
+    }, 2000);
+
+    // inner();
+  }
+
+  //   doIt();
+
+  //   window.doIt();
+
+  const o = {
+    id: 2,
+    doIt: doIt,
+  };
+
+  //   o.doIt();
+
+  doIt.call({ id: 3 });
+
+  //   console.log(window.doIt === o.doIt);
+</script>
