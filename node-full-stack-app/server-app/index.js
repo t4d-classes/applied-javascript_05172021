@@ -8,6 +8,8 @@ const { createRestRouter } = require("./routers/RestRouter");
 
 const app = express();
 
+app.use(express.json());
+
 app.use("/api/colors", createRestRouter());
 
 app.use("/", express.static("./public"));
