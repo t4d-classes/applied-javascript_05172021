@@ -1,23 +1,24 @@
 {
   "name": "server-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server app for the Applied JavaScript class",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Eric Greene",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.10.2",
+    "winston": "^3.3.3"
+  },
   "devDependencies": {
     "http-proxy": "^1.18.1",
-    "nodemon": "^2.0.7"
-  },
-  "dependencies": {
-    "dotenv": "^9.0.2",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.8",
-    "mongoose": "^5.12.10",
-    "winston": "^3.3.3"
+    "nodemon": "^2.0.4"
   }
 }

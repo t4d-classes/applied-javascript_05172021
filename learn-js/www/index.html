@@ -1,25 +1,19 @@
 <script>
   "use strict";
 
-  const outer = () => {
-    let t = 2;
+  async function nums() {
+    console.log("get a num 1");
+    await 1;
 
-    setTimeout(() => {
-        t = 4;
-    }, 2000);
+    console.log("get a num 2");
+    await 2;
 
-    return () => {
-      console.log(t);
-    };
-  };
+    console.log("get a num 3");
+    await 3;
+  }
 
-  const inner = outer();
-
-  inner();
-
-  setTimeout(() => {
-    inner();
-  }, 4000);
-
-//   console.dir(inner);
+  for (let num of nums()) {
+    console.log("in the loop");
+    console.log(num);
+  }
 </script>
