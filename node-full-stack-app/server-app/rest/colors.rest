@@ -10,3 +10,7 @@ Content-Type: application/json
 {
     "name": "avocado"
 }
+
+###
+
+DELETE http://localhost:3060/api/colors/2 HTTP/1.1

@@ -23,5 +23,15 @@ module.exports.createRestRouter = () => {
       res.json(newColor);
     });
 
+  RestRouter.route("/:id").delete((req, res) => {
+    const colorId = parseInt(req.params.id, 10);
+
+    const colorIndex = colors.findIndex((c) => c.id === colorId);
+
+    colors.splice(colorIndex, 1);
+
+    res.sendStatus(204);
+  });
+
   return RestRouter;
 };
