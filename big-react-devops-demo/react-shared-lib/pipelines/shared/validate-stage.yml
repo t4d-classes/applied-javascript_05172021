@@ -1,0 +1,20 @@
+stages:
+  - stage: validate_code
+    displayName: "Run Code Linter and Unit Tests"
+    jobs:
+      - job: code_linter
+        displayName: "Code Linter"
+        steps:
+          - template: npm-steps.yml
+          - script: |
+              npx --yes eslint --max-warnings=0 src || exit 1
+            displayName: "ESLint"
+      - job: unit_tests
+        displayName: "Unit Tests"
+        steps:
+          - template: npm-steps.yml
+          - task: Npm@1
+            inputs:
+              command: "custom"
+              customCommand: "test -- --watchAll=false || exit 1"
+            displayName: "Jest"

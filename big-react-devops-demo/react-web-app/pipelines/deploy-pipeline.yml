@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: DownloadPipelineArtifact@2
+    inputs:
+      buildType: 'specific'
+      project: 'bc6b78ca-ea96-44ca-b7f0-912a8ff19c0a'
+      definition: '4'
+      specificBuildWithTriggering: true
+      buildVersionToDownload: 'latest'
+      artifactName: 'ReactWebApp'
+      targetPath: 'build'
+    displayName: "Get Static Site Artifact"
+
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: "build"
+    env:
+      azure_static_web_apps_api_token: $(deployment_token)
+    displayName: "Deploy Static Site"

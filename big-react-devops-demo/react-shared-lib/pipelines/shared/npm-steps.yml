@@ -1,0 +1,21 @@
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "14.17.0"
+    displayName: "Install Node"
+
+  - task: npmAuthenticate@0
+    inputs:
+      workingFile: ".npmrc"
+    displayName: "NPM Login"
+
+  - task: Npm@1
+    inputs:
+      command: "custom"
+      customCommand: "install -g npm@7"
+    displayName: "Upgrade NPM"
+
+  - task: Npm@1
+    inputs:
+      command: "ci"
+    displayName: "NPM CI Install"

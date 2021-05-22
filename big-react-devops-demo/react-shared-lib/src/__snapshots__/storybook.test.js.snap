@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Example/Button Default 1`] = `
+<button
+  style={null}
+>
+  My Button
+</button>
+`;
+
+exports[`Storyshots Example/ToolHeader Default 1`] = `
+<header>
+  <h1>
+    The Tool
+  </h1>
+  <h2>
+    React and DevOps is cool!
+  </h2>
+</header>
+`;

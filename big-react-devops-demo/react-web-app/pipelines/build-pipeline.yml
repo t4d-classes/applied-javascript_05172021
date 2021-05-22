@@ -1,0 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - template: shared/validate-stage.yml
+
+  - stage: build_and_publish
+    displayName: "Build and Publish"
+    jobs:
+      - job: build_and_publish_artifact
+        displayName: "Build and Publish Artifact"
+        steps:
+          - template: shared/npm-steps.yml
+          - task: Npm@1
+            inputs:
+              command: "custom"
+              customCommand: "run build"
+            displayName: "Build Artifact"
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: $(System.DefaultWorkingDirectory)/build
+              artifactName: ReactWebApp
+            displayName: "Publish Artifact"
